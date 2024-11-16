@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Académique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar bg-light p-3">
+        <h2 class="text-primary mb-4"><i class="fas fa-graduation-cap"></i> Académie</h2>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+            <li class="nav-item"><a href="Cours.html" class="nav-link"><i class="fas fa-book"></i> Cours</a></li>
+            <li class="nav-item"><a href="Calendrier.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendrier</a></li>
+            <li class="nav-item"><a href="Notifications.html" class="nav-link"><i class="fas fa-bell"></i> Notifications</a></li>
+            <li class="nav-item"><a href="Objectifs.html" class="nav-link"><i class="fas fa-bullseye"></i> Objectifs</a></li>
+            <li class="nav-item"><a href="Calculateur_moyenne.html" class="nav-link"><i class="fas fa-calculator"></i> Calculateur de Moyenne</a></li>
+            <li class="nav-item"><a href="Rapports.html" class="nav-link"><i class="fas fa-file-alt"></i> Rapports</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="main-content p-4 flex-grow-1">
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="h4">Tableau de Bord Académique</h1>
+                <p class="text-muted">Suivez vos progrès académiques et vos objectifs</p>
+            </div>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter un Nouveau Cours</button>
+        </header>
+
+        <!-- Cartes Statistiques -->
+        <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-2x mb-2 text-primary"></i>
+                        <h5>Moyenne Actuelle</h5>
+                        <p class="display-4">3.8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock fa-2x mb-2 text-success"></i>
+                        <h5>Crédits Complétés</h5>
+                        <p class="display-4">60/120</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-medal fa-2x mb-2 text-warning"></i>
+                        <h5>Cours Validés</h5>
+                        <p class="display-4">20</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-book-open fa-2x mb-2 text-danger"></i>
+                        <h5>Cours Actifs</h5>
+                        <p class="display-4">5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progression des Notes et Événements à Venir -->
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Progression des Notes</h5>
+                        <p class="card-text text-muted">Le graphique de progression des notes sera implémenté ici.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Événements à Venir</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-circle text-primary mr-2"></i> Examen de Mi-session - Mathématiques<br><small class='text-muted'>15 mars 2024</small></li>
+                            <li class='mb-2'><i	class='fas fa-circle text-primary mr-2'></i> Soumission de Projet - Informatique<br><small	class='text-muted'>20 mars	2024</small></li>
+                            <li	class='mb-2'><i	class='fas fa-circle text-primary mr-2'></i> Date Limite d'Inscription aux Cours<br><small	class='text-muted'>25 mars	2024</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bibliothèques JS -->
+<script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
+
+<!-- Ajout de la police Roboto -->
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet'>

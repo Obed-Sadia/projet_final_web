@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Moyenne</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar (même que dans le tableau de bord) -->
+        <div class="sidebar bg-light p-3">
+            <h2 class="text-primary mb-4"><i class="fas fa-graduation-cap"></i> Académie</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="tableau_de_bord.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+                <li class="nav-item"><a href="cours.html" class="nav-link"><i class="fas fa-book"></i> Cours</a></li>
+                <li class="nav-item"><a href="calendrier.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendrier</a></li>
+                <li class="nav-item"><a href="notifications.html" class="nav-link"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li class="nav-item"><a href="objectifs.html" class="nav-link"><i class="fas fa-bullseye"></i> Objectifs</a></li>
+                <li class="nav-item"><a href="calculateur_moyenne.html" class="nav-link active"><i class="fas fa-calculator"></i> Calculateur de Moyenne</a></li>
+                <li class="nav-item"><a href="rapports.html" class="nav-link"><i class="fas fa-file-alt"></i> Rapports</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenu Principal -->
+        <div class="main-content p-4 flex-grow-1">
+            <h1 class="h3 mb-4">Calculateur de Moyenne</h1>
+            
+            <!-- Formulaire d'ajout de cours et notes -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter un cours</h5>
+                    <form id="addCourseForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="courseName">Nom du cours</label>
+                                <input type="text" class="form-control" id="courseName" required>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="courseCredits">Crédits</label>
+                                <input type="number" class="form-control" id="courseCredits" min="1" required>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="courseGrade">Note obtenue</label>
+                                <input type="number" class="form-control" id="courseGrade" min="0" max="100" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>&nbsp;</label>
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Liste des cours et calcul de la moyenne -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vos cours et votre moyenne</h5>
+                    <table class="table" id="courseTable">
+                        <thead>
+                            <tr>
+                                <th>Cours</th>
+                                <th>Crédits</th>
+                                <th>Note</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les cours seront ajoutés ici dynamiquement -->
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <h4>Moyenne pondérée : <span id="weightedAverage">0.00</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Logique JavaScript pour ajouter des cours et calculer la moyenne
+        // (à implémenter)
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports Académiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar (même que dans le tableau de bord) -->
+        <div class="sidebar bg-light p-3">
+            <h2 class="text-primary mb-4"><i class="fas fa-graduation-cap"></i> Académie</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="tableau_de_bord.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+                <li class="nav-item"><a href="cours.html" class="nav-link"><i class="fas fa-book"></i> Cours</a></li>
+                <li class="nav-item"><a href="calendrier.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendrier</a></li>
+                <li class="nav-item"><a href="notifications.html" class="nav-link"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li class="nav-item"><a href="objectifs.html" class="nav-link "><i class="fas fa-bullseye"></i> Objectifs</a></li>
+                <li class="nav-item"><a href="calculateur_moyenne.html" class="nav-link"><i class="fas fa-calculator"></i> Calculateur de Moyenne</a></li>
+                <li class="nav-item"><a href="rapports.html" class="nav-link active"><i class="fas fa-file-alt"></i> Rapports</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenu Principal -->
+        <div class="main-content p-4 flex-grow-1">
+            <h1 class="h3 mb-4">Rapports Académiques</h1>
+            
+            <!-- Sélection du type de rapport -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Générer un rapport</h5>
+                    <form id="reportForm">
+                        <div class="form-row align-items-end">
+                            <div class="form-group col-md-4">
+                                <label for="reportType">Type de rapport</label>
+                                <select class="form-control" id="reportType">
+                                    <option value="progress">Progrès académique</option>
+                                    <option value="gpa">Évolution de la moyenne</option>
+                                    <option value="credits">Crédits accumulés</option>
+                                    <option value="objectives">Atteinte des objectifs</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="reportPeriod">Période</label>
+                                <select class="form-control" id="reportPeriod">
+                                    <option value="semester">Semestre en cours</option>
+                                    <option value="year">Année académique</option>
+                                    <option value="all">Tout le cursus</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Générer le rapport</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Affichage du rapport -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Votre rapport</h5>
+                    <div id="reportContent">
+                        <!-- Le contenu du rapport sera généré dynamiquement ici -->
+                        <p class="text-muted">Sélectionnez un type de rapport et une période pour générer votre rapport.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Logique JavaScript pour générer les rapports
+        // (à implémenter)
+    </script>
+</body>
+</html>

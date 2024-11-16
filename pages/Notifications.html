@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar (même que dans le tableau de bord) -->
+        <div class="sidebar bg-light p-3">
+            <h2 class="text-primary mb-4"><i class="fas fa-graduation-cap"></i> Académie</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="tableau_de_bord.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+                <li class="nav-item"><a href="cours.html" class="nav-link"><i class="fas fa-book"></i> Cours</a></li>
+                <li class="nav-item"><a href="calendrier.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendrier</a></li>
+                <li class="nav-item"><a href="notifications.html" class="nav-link active"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li class="nav-item"><a href="objectifs.html" class="nav-link"><i class="fas fa-bullseye"></i> Objectifs</a></li>
+                <li class="nav-item"><a href="calculateur_moyenne.html" class="nav-link"><i class="fas fa-calculator"></i> Calculateur de Moyenne</a></li>
+                <li class="nav-item"><a href="rapports.html" class="nav-link"><i class="fas fa-file-alt"></i> Rapports</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenu Principal -->
+        <div class="main-content p-4 flex-grow-1">
+            <h1 class="h3 mb-4">Notifications</h1>
+            
+            <!-- Liste des notifications -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mes notifications</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">Rappel : Examen de Mathématiques</h6>
+                                <small class="text-muted">Dans 3 jours</small>
+                            </div>
+                            <span class="badge badge-primary badge-pill">Nouveau</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">Note publiée : Projet d'Informatique</h6>
+                                <small class="text-muted">Il y a 1 jour</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">Inscription aux cours ouverte</h6>
+                                <small class="text-muted">Il y a 1 semaine</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Paramètres de notification -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Paramètres de notification</h5>
+                    <form>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="examNotif" checked>
+                                <label class="custom-control-label" for="examNotif">Notifications d'examen</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="assignmentNotif" checked>
+                                <label class="custom-control-label" for="assignmentNotif">Notifications de devoir</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="gradeNotif" checked>
+                                <label class="custom-control-label" for="gradeNotif">Notifications de notes</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sauvegarder les paramètres</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JS (comme dans le tableau de bord) -->
+</body>
+</html>

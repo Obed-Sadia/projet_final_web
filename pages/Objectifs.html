@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs Académiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-light p-3">
+            <h2 class="text-primary mb-4"><i class="fas fa-graduation-cap"></i> Académie</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="tableau_de_bord.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+                <li class="nav-item"><a href="cours.html" class="nav-link"><i class="fas fa-book"></i> Cours</a></li>
+                <li class="nav-item"><a href="calendrier.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendrier</a></li>
+                <li class="nav-item"><a href="notifications.html" class="nav-link"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li class="nav-item"><a href="objectifs.html" class="nav-link active"><i class="fas fa-bullseye"></i> Objectifs</a></li>
+                <li class="nav-item"><a href="calculateur_moyenne.html" class="nav-link"><i class="fas fa-calculator"></i> Calculateur de Moyenne</a></li>
+                <li class="nav-item"><a href="rapports.html" class="nav-link"><i class="fas fa-file-alt"></i> Rapports</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenu Principal -->
+        <div class="main-content p-4 flex-grow-1">
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="h3">Objectifs Académiques</h1>
+                    <p class="text-muted">Définissez et suivez vos objectifs académiques</p>
+                </div>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#nouvelObjectifModal">
+                    <i class="fas fa-plus"></i> Nouvel Objectif
+                </button>
+            </header>
+
+            <!-- Statistiques des Objectifs -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-bullseye fa-2x mb-2 text-primary"></i>
+                            <h5>Total Objectifs</h5>
+                            <p class="display-4">7</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
+                            <h5>Objectifs Atteints</h5>
+                            <p class="display-4">3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-spinner fa-2x mb-2 text-warning"></i>
+                            <h5>Objectifs en Cours</h5>
+                            <p class="display-4">4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liste des Objectifs -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mes Objectifs</h5>
+                    <div class="list-group">
+                        <!-- Objectif 1 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Obtenir une moyenne de 16/20 ce semestre</h5>
+                                <small class="badge badge-success">Atteint</small>
+                            </div>
+                            <p class="mb-1">Objectif de performance académique pour le semestre en cours</p>
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                            </div>
+                            <small class="text-muted">Date limite : 30 juin 2024</small>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">Détails</button>
+                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
+                            </div>
+                        </div>
+
+                        <!-- Objectif 2 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Compléter 60 crédits cette année</h5>
+                                <small class="badge badge-warning">En cours</small>
+                            </div>
+                            <p class="mb-1">Progression dans mon parcours académique</p>
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 65%"></div>
+                            </div>
+                            <small class="text-muted">40/60 crédits complétés</small>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">Détails</button>
+                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
+                            </div>
+                        </div>
+
+                        <!-- Autres objectifs similaires -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouvel Objectif -->
+    <div class="modal fade" id="nouvelObjectifModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Créer un nouvel objectif</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="titreObjectif">Titre de l'objectif</label>
+                            <input type="text" class="form-control" id="titreObjectif" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptionObjectif">Description</label>
+                            <textarea class="form-control" id="descriptionObjectif" rows="3"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="typeObjectif">Type d'objectif</label>
+                                <select class="form-control" id="typeObjectif">
+                                    <option>Moyenne académique</option>
+                                    <option>Nombre de crédits</option>
+                                    <option>Compétence</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="dateObjectif">Date limite</label>
+                                <input type="date" class="form-control" id="dateObjectif">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="progressionObjectif">Progression (%)</label>
+                            <input type="range" class="custom-range" id="progressionObjectif" min="0" max="100">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary">Créer l'objectif</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Fonctionnalités JavaScript à ajouter
+        // - Validation du formulaire
+        // - Ajout dynamique d'objectifs
+        // - Mise à jour de la progression
+        // - Suppression d'objectifs
+    </script>
+</body>
+</html>
