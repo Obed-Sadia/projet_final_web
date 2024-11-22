@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="../css/inscription.css">
+</head>
+<body>
+    <h2>S'inscrire</h2>
+    <p>Rejoignez la plateforme Academia.</p>
+    <form action="/inscription" method="POST">
+        <input type="text" id="nom_utilisateur" name="nom_utilisateur" placeholder="Entrez votre nom d'utilisateur" required>
+        <input type="email" id="email" name="email" placeholder="Entrez votre adresse email" required>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Entrez un mot de passe" required>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <p class="texte">Vous avez déjà un compte? <a href="../index.html">Se connecter</a></p>
+
+</body>
+</html>

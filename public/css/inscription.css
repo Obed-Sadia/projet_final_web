@@ -34,7 +34,8 @@ form {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+#role {
     padding: 10px;
     border: none;
     border-radius: 5px;
