@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 let db = null;
 
-// Fonction pour établir une connexion à la base de données
+// Fonction pofur établir une connexion à la base de données
 function connect() {
     return new Promise((resolve, reject) => {
         db = new sqlite3.Database(config.databasePath, (err) => {
