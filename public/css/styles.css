@@ -212,14 +212,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 10px;
 }
 
-.user_name {
-    display: flex;
 
-    align-items: center;
-    padding: 15px ;
-    margin-right: 100px;
-}
 
 .user_name h6 {
- margin-left: 20px;
+ margin-right: 100px;
 }

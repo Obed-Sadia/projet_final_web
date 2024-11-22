@@ -68,48 +68,17 @@
             </div>
 
             <!-- Liste des Objectifs -->
+            <!-- Liste des Objectifs -->
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Mes Objectifs</h5>
-                    <div class="list-group">
-                        <!-- Objectif 1 -->
-                        <div class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Obtenir une moyenne de 16/20 ce semestre</h5>
-                                <small class="badge badge-success">Atteint</small>
-                            </div>
-                            <p class="mb-1">Objectif de performance académique pour le semestre en cours</p>
-                            <div class="progress mt-2">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
-                            </div>
-                            <small class="text-muted">Date limite : 30 juin 2024</small>
-                            <div class="mt-2">
-                                <button class="btn btn-sm btn-outline-primary">Détails</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </div>
-                        </div>
-
-                        <!-- Objectif 2 -->
-                        <div class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Compléter 60 crédits cette année</h5>
-                                <small class="badge badge-warning">En cours</small>
-                            </div>
-                            <p class="mb-1">Progression dans mon parcours académique</p>
-                            <div class="progress mt-2">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 65%"></div>
-                            </div>
-                            <small class="text-muted">40/60 crédits complétés</small>
-                            <div class="mt-2">
-                                <button class="btn btn-sm btn-outline-primary">Détails</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </div>
-                        </div>
-
-                        <!-- Autres objectifs similaires -->
+                    <div class="list-group" id="objectifList">
+                        <!-- Les objectifs seront insérés ici dynamiquement -->
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 
@@ -166,6 +135,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/afficherObjectifs.js"></script>
     <script>
         // Fonctionnalités JavaScript à ajouter
         // - Validation du formulaire

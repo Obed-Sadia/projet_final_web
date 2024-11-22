@@ -1,97 +1,46 @@
+// src/server.js
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const config = require('../config/config');
 const database = require('./database');
-const bcrypt = require('bcrypt'); // Assurez-vous que bcrypt est importé ici
+const session = require('express-session'); // Assurez-vous d'avoir installé ce package
+
+// Importer les routes 
+const objectifsRoutes = require('./routes/objectifsRoutes');
+const coursRoutes = require('./routes/coursRoutes');
+const connexionRoutes = require('./routes/connexionRoutes'); // Assurez-vous que le chemin est correct
+const inscriptionRoutes = require('./routes/inscriptionRoutes');
+const tableaudebordRoutes = require('./routes/tableaudebordRoutes'); // Nouvelle route pour le tableau de bord
+
 
 const app = express();
-const PORT = config.port || 3000; // Utiliser le port défini dans config ou 3000 par défaut
+const PORT = config.port || 3000;
+
+
+// Configurer les sessions
+app.use(session({
+    secret: '12hjhjgjhguhj345', // Changez ceci par une clé secrète plus sécurisée en production
+    resave: false,
+    saveUninitialized: true,
+}));
 
 // Middleware
-app.use(cors()); // Activer CORS pour toutes les routes
-app.use(express.json()); // Analyser les corps des requêtes en JSON
-app.use(express.static(path.join(__dirname, '../public'))); // Servir les fichiers statiques depuis le dossier 'public'
-app.use(express.urlencoded({ extended: true })); // Pour traiter application/x-www-form-urlencoded
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Utilisation des routes
+app.use('/api', connexionRoutes);  // Assurez-vous que cette ligne est présente avant les autres routes
+app.use('/api', inscriptionRoutes);
+app.use('/api', coursRoutes);
+app.use('/api', objectifsRoutes);
+app.use('/', tableaudebordRoutes); // Utiliser les routes du tableau de bord
 
 // Route pour page d'accueil
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html')); // Servir index.html
-});
-
-// Route pour la page de connexion 
-app.post('/Connexion', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-
-        if (!email || !password) {
-            return res.status(400).json({ error: "Email et mot de passe sont requis." });
-        }
-
-        // Recherche de l'utilisateur dans la base de données
-        const utilisateur = await database.getUtilisateurEmail(email);
-
-        if (!utilisateur) {
-            // Protection contre les attaques par timing
-            const fakePassword = "$2b$10$placeholderplaintextbypasshash";
-            await bcrypt.compare(password, fakePassword);
-            return res.status(401).json({ error: "Email ou mot de passe incorrect." });
-        }
-
-        // Vérification du mot de passe
-        const passwordMatch = await database.verificateurMotDePasse(utilisateur.password, password);
-        if (!passwordMatch) {
-            return res.status(401).json({ error: "Email ou mot de passe incorrect." });
-        }
-
-        // Réponse en cas de succès
-        res.status(200).json({
-            message: "Connexion réussie.",
-            username: utilisateur.nom_utilisateur, // Assurez-vous que c'est le bon champ
-        });
-    } catch (error) {
-        console.error("Erreur lors de la connexion :", error);
-        res.status(500).json({ error: "Erreur interne du serveur." });
-    }
-});
-
-// Route d'inscription 
-app.post('/inscription', async (req, res) => {
-    try {
-        const { nom_utilisateur, email, mot_de_passe } = req.body;
-
-        console.log('Données reçues :', req.body);
-        
-        // Validation des données
-        if (!nom_utilisateur || !email || !mot_de_passe) {
-            return res.status(400).json({ error: "Tous les champs (nom_utilisateur, email, mot_de_passe) sont requis." });
-        }
-
-        // Vérifier si l'email est déjà utilisé
-        const utilisateurExistant = await database.getUtilisateurEmail(email);
-        if (utilisateurExistant) {
-            return res.status(409).json({ error: "Cet email est déjà utilisé." });
-        }
-
-        // Hacher le mot de passe
-        const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
-
-        // Ajouter le nouvel utilisateur à la base de données
-        const nouvelUtilisateur = await database.ajouterUtilisateur(nom_utilisateur, email, hashedPassword);
-
-        // Réponse en cas de succès sans retourner le mot de passe
-        res.status(201).json({
-            message: "Utilisateur inscrit avec succès.",
-            utilisateur: {
-                id_utilisateur: nouvelUtilisateur.id_utilisateur,
-                nom_utilisateur: nouvelUtilisateur.nom_utilisateur,
-                email: nouvelUtilisateur.email,
-            },
-        });
-    } catch (error) {
-        console.error("Erreur lors de l'inscription :", error);
-        res.status(500).json({ error: "Erreur interne du serveur." });
-    }
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Démarrage du serveur
@@ -103,5 +52,5 @@ database.connect()
     })
     .catch((err) => {
         console.error('Failed to connect to the database', err);
-        process.exit(1); // Quitter le processus si la connexion échoue
+        process.exit(1);
     });

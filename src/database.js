@@ -30,43 +30,63 @@ function getUtilisateurEmail(email) {
                 resolve(row); 
             }
         });
+        
     });
 }
 
-// Fonction pour vérifier le mot de passe
-async function verificateurMotDePasse(storedPassword, inputPassword) {
-    try {
-        return await bcrypt.compare(inputPassword, storedPassword); 
-    } catch (err) {
-        console.error('Erreur lors de la vérification du mot de passe:', err);
-        return false; 
-    }
+//Fonction pour récupérer la liste de cour 
+function getCoursUtilisateur(userId) {
+    return new Promise((resolve, reject) => {
+      db.all("SELECT * FROM Cours WHERE id_utilisateur = ?", [userId], (err, rows) => {
+        if (err) {
+          console.error('Error retrieving courses:', err.message);
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
 }
 
-// Fonction pour ajouter un nouvel utilisateur avec hachage du mot de passe
-async function ajouterUtilisateur(nom_utilisateur, email, mot_de_passe) {
-    const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
+//Fonction pour récupérer la liste de cour 
+function getObjectifsUtilisateur(userId) {
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Utilisateur (nom_utilisateur, email, mot_de_passe) VALUES (?, ?, ?)`;
-        db.run(sql, [nom_utilisateur, email, hashedPassword], function (err) { 
+        db.all("SELECT * FROM Objectif WHERE id_etudiant = ?", [userId], (err, rows) => {
             if (err) {
-                console.error('Error adding user:', err.message); 
+                console.error('Error retrieving objectives:', err.message);
                 reject(err);
             } else {
-                resolve({
-                    id_utilisateur: this.lastID,
-                    nom_utilisateur: nom_utilisateur,
-                    email: email,
-                });
+                resolve(rows);
             }
         });
     });
 }
+
+async function ajouterUtilisateur(nom_utilisateur, email, mot_de_passe) {
+    return new Promise((resolve, reject) => {
+        const sql = `INSERT INTO Utilisateur (nom_utilisateur, email, mot_de_passe) VALUES (?, ?, ?)`;
+        db.run(sql, [nom_utilisateur, email, mot_de_passe], function (err) {
+            if (err) {
+                console.error("Error adding user:", err.message);
+                return reject(err);
+            }
+            resolve({
+                id_utilisateur: this.lastID,
+                nom_utilisateur: nom_utilisateur,
+                email: email,
+                mot_de_passe: mot_de_passe,
+            });
+        });
+    });
+}
+
+
 
 // Exporter les fonctions pour utilisation ailleurs
 module.exports = {
     connect,
     getUtilisateurEmail,
     ajouterUtilisateur,
-    verificateurMotDePasse
+    getCoursUtilisateur,
+    getObjectifsUtilisateur
 };
