@@ -25,6 +25,7 @@ body {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
+    border-radius: 10px;
 }
 
 /* Main Content */
@@ -202,4 +203,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .fade-in {
     animation: fadeIn 0.5s ease-in;
+}
+
+
+
+/*Tableau de bord */
+.fas {
+    margin-right: 10px;
+}
+
+.user_name {
+    display: flex;
+
+    align-items: center;
+    padding: 15px ;
+    margin-right: 100px;
+}
+
+.user_name h6 {
+ margin-left: 20px;
 }
