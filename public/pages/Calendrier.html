@@ -44,7 +44,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="card-title">Ajouter un événement</h5>
-                            <form>
+                            <form id="addEventForm">
                                 <div class="form-group">
                                     <label for="eventTitle">Titre</label>
                                     <input type="text" class="form-control" id="eventTitle" required>
@@ -71,10 +71,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Événements à venir</h5>
-                            <ul class="list-group">
-                                <li class="list-group-item">Examen de Mathématiques - 15 mars</li>
-                                <li class="list-group-item">Projet d'Informatique - 20 mars</li>
-                                <li class="list-group-item">Inscription aux cours - 25 mars</li>
+                            <ul class="list-group" id="upcomingEvents">
+                                <!-- Les événements seront ajoutés ici dynamiquement -->
                             </ul>
                         </div>
                     </div>
@@ -82,6 +80,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Scripts JS (comme dans le tableau de bord) -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
@@ -95,5 +94,6 @@
             calendar.render();
         });
     </script>
+    <script src="../js/afficherEvenements.js"></script>
 </body>
 </html>

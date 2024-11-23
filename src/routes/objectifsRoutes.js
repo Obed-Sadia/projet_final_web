@@ -4,7 +4,7 @@ const router = express.Router();
 const database = require('../database'); // Assurez-vous que le chemin est correct
 
 // Route pour récupérer les objectifs de l'utilisateur connecté
-router.get('/Objectifs', async (req, res) => {
+router.get('/objectifs', async (req, res) => {
     try {
         const userId = req.session.userId; // Assurez-vous que vous avez configuré les sessions
         if (!userId) {

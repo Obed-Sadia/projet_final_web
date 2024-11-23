@@ -62,11 +62,13 @@ CREATE TABLE Session (
 -- Table Cours
 CREATE TABLE Cours (
     id_cours INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_etudiant INTEGER NOT NULL,
     id_session INTEGER,
     code_cours TEXT UNIQUE NOT NULL,
     nom_cours TEXT NOT NULL,
     credits INTEGER NOT NULL,
     description TEXT,
+    FOREIGN KEY (id_etudiant) REFERENCES Etudiant(id_etudiant),
     FOREIGN KEY (id_session) REFERENCES Session(id_session)
 );
 
@@ -138,3 +140,21 @@ INSERT INTO Utilisateur (nom_utilisateur, mot_de_passe, email)
 VALUES
     ('Obed', 'password1', 'obedsadia@gmail.com'),
     ('user2', 'password2', 'user2@example.com');
+)
+
+
+PRAGMA foreign_keys = OFF;
+
+DROP TABLE IF EXISTS Utilisateur;
+DROP TABLE IF EXISTS Administrateur;
+DROP TABLE IF EXISTS Programme;
+DROP TABLE IF EXISTS AnneeAcademique;
+DROP TABLE IF EXISTS Etudiant;
+DROP TABLE IF EXISTS Session;
+DROP TABLE IF EXISTS Cours;
+DROP TABLE IF EXISTS Note;
+DROP TABLE IF EXISTS Objectif;
+DROP TABLE IF EXISTS Evenement;
+
+PRAGMA foreign_keys = ON;
+

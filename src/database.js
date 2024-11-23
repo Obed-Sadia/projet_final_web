@@ -35,9 +35,9 @@ function getUtilisateurEmail(email) {
 }
 
 //Fonction pour récupérer la liste de cour 
-function getCoursUtilisateur(userId) {
+function getCoursUtilisateur(etudiantId) {
     return new Promise((resolve, reject) => {
-      db.all("SELECT * FROM Cours WHERE id_utilisateur = ?", [userId], (err, rows) => {
+      db.all("SELECT * FROM Cours WHERE id_etudiant = ?", [etudiantId], (err, rows) => {
         if (err) {
           console.error('Error retrieving courses:', err.message);
           reject(err);
@@ -47,6 +47,19 @@ function getCoursUtilisateur(userId) {
       });
     });
 }
+
+//Fonction pour recuperer un etudiant avec l'id de l'utilisateur
+function getEtudiantParUserId(userId) {
+    return new Promise((resolve, reject) => {
+      db.get('SELECT * FROM Etudiant WHERE id_utilisateur = ?', [userId], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
 
 //Fonction pour récupérer la liste de cour 
 function getObjectifsUtilisateur(userId) {
@@ -61,6 +74,20 @@ function getObjectifsUtilisateur(userId) {
         });
     });
 }
+
+//Foncion qui recupëre les evenement 
+function getEvenementsParEtudiantId(id_etudiant) {
+    return new Promise((resolve, reject) => {
+      db.all('SELECT * FROM Evenement WHERE id_etudiant = ?', [id_etudiant], (err, rows) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+}
+
 
 async function ajouterUtilisateur(nom_utilisateur, email, mot_de_passe) {
     return new Promise((resolve, reject) => {
@@ -82,11 +109,15 @@ async function ajouterUtilisateur(nom_utilisateur, email, mot_de_passe) {
 
 
 
+
+
 // Exporter les fonctions pour utilisation ailleurs
 module.exports = {
     connect,
     getUtilisateurEmail,
     ajouterUtilisateur,
     getCoursUtilisateur,
-    getObjectifsUtilisateur
+    getObjectifsUtilisateur,
+    getEtudiantParUserId,
+    getEvenementsParEtudiantId
 };

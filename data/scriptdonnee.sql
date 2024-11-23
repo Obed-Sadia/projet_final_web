@@ -38,6 +38,21 @@ SELECT
     90 + (row_number * 3)
 FROM (SELECT ROW_NUMBER() OVER () AS row_number FROM sqlite_master LIMIT 50);
 
+-- Insertion des années académiques
+INSERT INTO AnneeAcademique (annee, date_debut, date_fin)
+VALUES 
+    ('2020-2021', '2020-09-01', '2021-08-31'),
+    ('2021-2022', '2021-09-01', '2022-08-31'),
+    ('2022-2023', '2022-09-01', '2023-08-31'),
+    ('2023-2024', '2023-09-01', '2024-08-31'),
+    ('2024-2025', '2024-09-01', '2025-08-31'),
+    ('2025-2026', '2025-09-01', '2026-08-31'),
+    ('2026-2027', '2026-09-01', '2027-08-31'),
+    ('2027-2028', '2027-09-01', '2028-08-31'),
+    ('2028-2029', '2028-09-01', '2029-08-31'),
+    ('2029-2030', '2029-09-01', '2030-08-31');
+
+
 
 
 -- Insérer les étudiants
@@ -81,14 +96,17 @@ SELECT
 FROM (SELECT ROW_NUMBER() OVER () AS row_number FROM sqlite_master LIMIT 50);
 
 
-INSERT INTO Cours (id_session, code_cours, nom_cours, credits, description)
+INSERT INTO Cours (id_etudiant, id_session, code_cours, nom_cours, credits, description)
 SELECT 
-    (row_number % 10) + 1,
+    e.id_utilisateur,  -- Liaison avec un étudiant
+    (row_number % 10) + 1,  -- Association avec une session
     'COURS' || printf('%03d', row_number + 100) AS code_cours,
     'Cours ' || row_number,
-    (row_number % 3) + 1,
+    (row_number % 3) + 1,  -- Nombre de crédits
     'Description du cours ' || row_number
-FROM (SELECT ROW_NUMBER() OVER () AS row_number FROM sqlite_master LIMIT 50);
+FROM (SELECT ROW_NUMBER() OVER () AS row_number FROM sqlite_master LIMIT 50) AS rn
+JOIN Etudiant e ON rn.row_number = e.id_utilisateur;  -- Associer chaque ligne à un étudiant
+
 
 
 INSERT INTO Note (id_etudiant, id_cours, id_session, note, date_obtention)

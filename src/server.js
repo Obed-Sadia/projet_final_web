@@ -12,6 +12,7 @@ const coursRoutes = require('./routes/coursRoutes');
 const connexionRoutes = require('./routes/connexionRoutes'); // Assurez-vous que le chemin est correct
 const inscriptionRoutes = require('./routes/inscriptionRoutes');
 const tableaudebordRoutes = require('./routes/tableaudebordRoutes'); // Nouvelle route pour le tableau de bord
+const evenementsRoutes = require('./routes/evenementsRoutes');
 
 
 const app = express();
@@ -32,15 +33,45 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Utilisation des routes
+app.use('/api', evenementsRoutes)
 app.use('/api', connexionRoutes);  // Assurez-vous que cette ligne est présente avant les autres routes
 app.use('/api', inscriptionRoutes);
 app.use('/api', coursRoutes);
 app.use('/api', objectifsRoutes);
 app.use('/', tableaudebordRoutes); // Utiliser les routes du tableau de bord
 
+
 // Route pour page d'accueil
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+
+
+// Les routes vers les interfaces 
+// Route pour afficher Cours.html
+app.get('/Cours.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/pages/Cours.html')); // Chemin vers votre fichier HTML Cours
+});
+
+// Route pour afficher Notifications.html
+app.get('/Notifications.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/pages/Notifications.html')); // Chemin vers votre fichier HTML Notifications
+});
+
+// Route pour afficher Objectifs.html
+app.get('/Objectifs.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/pages/Objectifs.html')); // Chemin vers votre fichier HTML Objectifs
+});
+
+// Route pour afficher Calendrier.html
+app.get('/Calendrier.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/pages/Calendrier.html')); // Chemin vers votre fichier HTML Calendrier
+});
+
+// Routes pour servir les fichiers HTML
+app.get('/tableau_de_bord.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/pages/tableau_de_bord.html')); // Chemin vers votre fichier HTML
 });
 
 // Démarrage du serveur

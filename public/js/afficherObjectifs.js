@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchUserObjectifs() {
-    fetch('/objectifs')
+    fetch('/api/objectifs')
         .then(response => response.json())
         .then(objectifs => {
             const objectifList = document.getElementById('objectifList');
