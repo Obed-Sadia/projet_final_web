@@ -33,9 +33,9 @@
             <div class="row">
                 <div class="col-md-9">
                     <!-- Calendrier -->
-                    <div class="card">
+                    <div class="card calendar-card">
                         <div class="card-body">
-                            <div id="calendar"></div>
+                            <div id="calendar" class="custom-calendar"></div>
                         </div>
                     </div>
                 </div>
@@ -45,27 +45,65 @@
                         <div class="card-body">
                             <h5 class="card-title">Ajouter un événement</h5>
                             <form id="addEventForm">
+                                <!-- Titre de l'événement -->
                                 <div class="form-group">
                                     <label for="eventTitle">Titre</label>
                                     <input type="text" class="form-control" id="eventTitle" required>
                                 </div>
+                                
+                                <!-- Étudiant associé -->
                                 <div class="form-group">
-                                    <label for="eventDate">Date</label>
-                                    <input type="date" class="form-control" id="eventDate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="eventType">Type</label>
-                                    <select class="form-control" id="eventType">
-                                        <option>Examen</option>
-                                        <option>Devoir</option>
-                                        <option>Projet</option>
-                                        <option>Autre</option>
+                                    <label for="eventStudent">Étudiant</label>
+                                    <select class="form-control" id="eventStudent" required>
+                                        <option value="" disabled selected>Choisissez un étudiant</option>
+                                        <!-- Options générées dynamiquement par JS -->
                                     </select>
                                 </div>
+                                
+                                <!-- Cours associé -->
+                                <div class="form-group">
+                                    <label for="eventCourse">Cours</label>
+                                    <select class="form-control" id="eventCourse" required>
+                                        <option value="" disabled selected>Choisissez un cours</option>
+                                        <!-- Options générées dynamiquement par JS -->
+                                    </select>
+                                </div>
+                                
+                                <!-- Type de l'événement -->
+                                <div class="form-group">
+                                    <label for="eventType">Type</label>
+                                    <select class="form-control" id="eventType" required>
+                                        <option value="Examen">Examen</option>
+                                        <option value="Devoir">Devoir</option>
+                                        <option value="Projet">Projet</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Description -->
+                                <div class="form-group">
+                                    <label for="eventDescription">Description</label>
+                                    <textarea class="form-control" id="eventDescription" rows="3" placeholder="Ajoutez une description"></textarea>
+                                </div>
+                                
+                                <!-- Date de début -->
+                                <div class="form-group">
+                                    <label for="eventStartDate">Date de début</label>
+                                    <input type="datetime-local" class="form-control" id="eventStartDate" required>
+                                </div>
+                                
+                                <!-- Date de fin -->
+                                <div class="form-group">
+                                    <label for="eventEndDate">Date de fin</label>
+                                    <input type="datetime-local" class="form-control" id="eventEndDate">
+                                </div>
+                                
+                                <!-- Bouton Ajouter -->
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                             </form>
                         </div>
                     </div>
+                    
                     
                     <!-- Événements à venir -->
                     <div class="card">
